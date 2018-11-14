@@ -22,7 +22,12 @@ chrome.runtime.onConnect.addListener(port => {
         chrome.desktopCapture.chooseDesktopMedia(['tab', 'audio'], streamId => {
           // Get the stream
           navigator.webkitGetUserMedia({
-            audio: false,
+            audio: {
+              mandatory: {
+                chromeMediaSource: 'desktop',
+                chromeMediaSourceId: streamId,
+              }
+            },
             video: {
               mandatory: {
                 chromeMediaSource: 'desktop',
@@ -31,7 +36,7 @@ chrome.runtime.onConnect.addListener(port => {
                 maxWidth: 1280,
                 minHeight: 720,
                 maxHeight: 720,
-                minFrameRate: 60,
+                maxFrameRate: 60,
               }
             }
           }, stream => {
