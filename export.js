@@ -1,4 +1,8 @@
 const puppeteer = require('puppeteer');
+
+// pluginPath must be the full path to libpepflashplayer.so
+puppeteer.use(require('puppeteer-extra-plugin-flash')({pluginPath: 'CHANGEME', pluginVersion: 9000, allowFlash: true}))
+
 const Xvfb      = require('xvfb');
 var xvfb        = new Xvfb({silent: true});
 var width       = 1280;
