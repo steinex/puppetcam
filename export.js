@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
 
 // pluginPath must be the full path to libpepflashplayer.so
 puppeteer.use(require('puppeteer-extra-plugin-flash')({pluginPath: 'CHANGEME', pluginVersion: 9000, allowFlash: true}))
